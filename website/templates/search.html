@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %} Vyhľadať predka {% endblock %}
+
+{% block content %}
+
+<section class = 'container'>
+	<form class = 'd-flex flex-column align-items-center justify-content-center' method="post" id="createRequestForm">
+		<fieldset class = "mb-3">
+			<legend>Zadanie známych údajov</legend>
+			<p>Vyplnte čo najviac údajov</p>
+			<p>Môžete zadať aj nepresné informácie</p>
+			<p><label for="order_code">Meno:</label>
+			<input type="text" name="name" id="name" size="20"></p>
+			<p><label for="surname">Priezvisko:</label>
+			<input type="text" name="surname" id="name" size="20"></p>
+			<p><label for="birth_date">Dátum narodenia:</label>
+			<input type="date" name="birth_date" id="birth_date" size="20"></p>
+			<p><label for="death_date">Dátum úmrtia:</label>
+			<input type="date" name="death_date" id="death_date" size="20"></p>
+			<p>...</p>
+		</fieldset>
+		<p><input type="submit" name="search" id="search" value="VYHĽADAŤ"></p>
+	</form>
+</section>
+
+{% endblock %}

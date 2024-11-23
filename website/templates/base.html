@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="sk">
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+	</head>
+	<body>
+		<header>
+			<a id = "MAIN_TEXT" href="{{ url_for('views.home') }}">
+			<h1>RODOSTROM</h1>
+			</a>
+		</header>
+		
+		{% include 'navigation.html' %}
+		
+		<div class="content">
+			{% for message in get_flashed_messages() %}
+				<div class="alert">{{ message }}</div>
+			{% endfor %}
+			{% block content %} {% endblock %}
+		</div>
+		<footer>
+			<p> </p>
+		</footer>
+	</body>
+</html>
