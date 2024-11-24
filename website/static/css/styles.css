@@ -1,0 +1,172 @@
+header {
+	border-bottom: 2px solid #d9dad7;
+}
+section{
+	color: #3b4754;
+	border-radius: 20px;
+	background-color: #edf0f4;
+	margin: 5em 20em 0em 20em;
+	padding: 2em 5em 5em 3em;
+	text-align: center;
+	float:none;
+	clear:both;
+}
+#user_info{
+	margin: 1% 2% 6% 21%;
+	padding: 2% 1%;
+	width: 25%;
+	float:left;	
+	clear:none;
+	height: 290px;
+}
+
+#password_change{
+	margin: 1% 21% 6% 2%;
+	padding: 2% 1%;
+	width: 25%;
+	float:left;
+	clear:none;	
+	height: 290px;
+}
+
+
+#prihlas {
+	margin: -30px;
+	}
+@media (max-width: 768px) {
+    section {
+        margin: 3% 0% 0% 0%;
+        padding: 1.5em;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        
+    }
+    
+    #prihlas {
+    	margin : 0%;
+    }
+    
+    #user_info, #password_change {
+        margin: 2% auto 2% auto;
+        padding: 10%;
+        width : initial;
+        float: initial;
+        height: initial;
+        
+    }
+}
+
+#main_section{
+	background-color:#f8f8f8;
+	padding:1em;
+}
+#main_section section{
+	color: #3b4754;
+	border-radius: 20px;
+	background-color: #edf0f4;
+	margin: 2em 5em;
+	padding: 2em 5em 5em 3em;
+	text-align: center;
+	float:none;
+	clear:both;
+	border: 1px solid #29323d;
+}
+#notification{
+	margin: 2em 5em;
+	padding: 2em 5em 2em 3em;
+	clear:none;
+}
+hr{
+	border: 1px solid #d9dad7;
+	margin: 20px 0 30px 0;
+}
+fieldset{
+	border: 0em;
+}
+legend,h2{
+	margin: 0px;
+	font-weight: bold;
+	font-size: 1.5em;
+	color: #29323d;
+}
+h1{
+	color: #29323d;
+	margin-top: 0;
+}
+p{
+	padding-bottom: 0.3em;
+}
+
+input[type="text"],input[type="password"], input[type="date"], input[type="time"], select{
+	border: 0.1em 0.1em 0.1em 0.1em;
+	border-color: #d9dad7;
+	border-radius: 8px;
+	height: 25px;
+	margin-top: 7px;
+}
+
+textarea{
+	border: 0.1em 0.1em 0.1em 0.1em;
+	border-color: #d9dad7;
+	border-radius: 8px;
+	margin-top: 7px;
+}
+
+input[type="submit"]{
+	background-color: #29323d;
+	color: white;
+	border-radius: 20px;
+	padding: 1em 1em 1em 1em;
+	margin: 1em 2em;
+}
+nav{
+	text-align: center;
+	padding-top: 0.7em;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  nav {
+    display: flex;
+    flex-direction: column;
+  }
+}
+a{
+	margin: 0em 1em 0em 1em;
+	font-weight:bold;
+	color: #29323d;
+	font-size: 20px;
+}
+table {
+	width: 90%;
+	border-collapse: collapse;
+	border: 3px solid #d6d6d6;
+	margin:auto;
+}
+table tr:nth-child(even) {
+	background-color: #ffffff;
+	padding: 8px;
+}
+th,td{
+	padding: 5px;
+}
+table tr:nth-child(odd) {
+	background-color: #ebebeb;
+	padding: 8px;
+}
+table tr:first-child {
+	background-color: #d6d6d6;
+}
+
+#MAIN_TEXT {
+text-decoration: none;
+}
+
+#lang {
+float:right;
+padding-right:2.5%;
+}
+
+
+
