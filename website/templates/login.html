@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %} Prihlásenie {% endblock %}
+
+{% block content %}
+
+{% if message %}
+    <p class="notification">{{ message }}</p>
+{% endif %}
+
+<section class="container">
+	<form method="post" class="d-flex flex-column align-items-center justify-content-center">
+	  <fieldset class="mb-3">
+		<legend class="h2 mb-0 text-center">Prihlásenie</legend>
+  
+		<div class="form-group mb-3">
+		  <label for="email" class="mb-1">Emailová adresa:</label>
+		  <input size = "20" type="email" name="email" id="email" class="form-control" required style="height: 30px;">
+		</div>
+  
+		<div class="form-group mb-3">
+		  <label for="password" class="mb-1">Heslo:</label>
+		  <input size = "20" type="password" name="password" id="password" class="form-control" required style="height: 30px;">
+		</div>
+  
+		<button type="submit" class="btn btn-primary btn-block mb-3">PRIHLÁSIŤ SA</button>
+		<p><a href="{{ url_for('views.signin') }}">Zaregistrujte sa</a></p>
+	  </fieldset>
+	</form>
+  </section>
+{% endblock %}
