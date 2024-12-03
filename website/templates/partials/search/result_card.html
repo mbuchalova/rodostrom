@@ -1,0 +1,23 @@
+<div class="result-card"
+    data-name="{{ result['name'] }}"
+    data-surname="{{ result['surname'] }}"
+    data-gender="{{ result['gender'] }}"
+    data-birth-date="{{ result['birth_date'] }}"
+    data-death-date="{{ result['death_date'] }}"
+    data-birth-city="{{ result['birth_city'] }}"
+    data-death-city="{{ result['death_city'] }}">
+    <div class="result-left">
+        <div class="icon-circle">
+            <span class="icon-text">i</span>
+        </div>
+    </div>
+    <div class="result-center">
+        <h3>{{ result['name'] }} {{ result['surname'] }}</h3>
+        <p>Pohlavie: {{ result['gender'] }}</p>
+        <p>* {{ result['birth_date'] }}, {{ result['birth_city'] }}</p>
+        <p>† {{ result['death_date'] }}, {{ result['death_city'] }}</p>
+    </div>
+    <div class="result-right">
+        <button class="add-button">+</button>
+    </div>
+</div>

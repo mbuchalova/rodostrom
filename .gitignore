@@ -1,0 +1,48 @@
+# General OS and IDE files
+.DS_Store
+Thumbs.db
+*.log
+*.swp
+*.swo
+*.sublime-workspace
+.idea/
+.vscode/
+
+# Python
+*.py[cod]
+__pycache__/
+*.pyo
+*.pyd
+env/
+venv/
+*.egg-info/
+.eggs/
+.coverage
+.cache
+.pytest_cache/
+
+# iOS
+*.xcuserstate
+*.xcuserdata
+*.swiftpm
+.build/
+
+# Logs and Temporary Files
+*.log
+*.tmp
+*.bak
+
+# Version Control
+*.orig
+*.rej
+
+# Miscellaneous
+*.env
+.env.local
+.env.*.local
+!example.env
+*.key
+*.pem
+
+# Mock DB
+ancestors.db
