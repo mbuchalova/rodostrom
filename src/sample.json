@@ -1,0 +1,183 @@
+{
+  "cells": [
+    {
+      "shape": "edge",
+      "id": "365e4c30-db27-43e0-bff3-c16754ea59c3",
+      "zIndex": 1,
+      "source": {
+        "cell": "4d8bc867-f219-4a6f-8ae2-c6c008260898"
+      },
+      "target": {
+        "cell": "8d1dc9b6-a6be-463b-81e4-d72b41359f4c"
+      }
+    },
+    {
+      "shape": "edge",
+      "id": "36327bc0-2368-41d9-b2da-3f00264dc8e5",
+      "zIndex": 1,
+      "source": {
+        "cell": "8d1dc9b6-a6be-463b-81e4-d72b41359f4c"
+      },
+      "target": {
+        "cell": "a9280bc4-0b27-4d28-952d-a818f13d2da7"
+      }
+    },
+    {
+      "shape": "edge",
+      "id": "ad5cda53-d42d-4d0f-95b6-3a6f978b972b",
+      "zIndex": 1,
+      "source": {
+        "cell": "8d1dc9b6-a6be-463b-81e4-d72b41359f4c"
+      },
+      "target": {
+        "cell": "d1062341-b54a-45df-a66e-2caea6dd8cae"
+      }
+    },
+    {
+      "shape": "edge",
+      "id": "3544c939-afbe-456d-87ea-54d89083b072",
+      "zIndex": 1,
+      "source": {
+        "cell": "4d8bc867-f219-4a6f-8ae2-c6c008260898"
+      },
+      "target": {
+        "cell": "c6a4db50-664d-4e22-897f-ca18207f2fb0"
+      }
+    },
+    {
+      "position": {
+        "x": -51,
+        "y": 610
+      },
+      "size": {
+        "width": 100,
+        "height": 40
+      },
+      "view": "react-shape-view",
+      "attrs": {
+        "body": {
+          "stroke": "#d9dad7",
+          "strokeWidth": 2
+        },
+        "label": {
+          "text": "Lukáš Minulý"
+        }
+      },
+      "shape": "custom-react-node",
+      "zIndex": 10,
+      "id": "4d8bc867-f219-4a6f-8ae2-c6c008260898",
+      "data": {
+        "name": "Lukáš Minulý",
+        "gender": "male"
+      }
+    },
+    {
+      "position": {
+        "x": -329,
+        "y": 325
+      },
+      "size": {
+        "width": 100,
+        "height": 100
+      },
+      "view": "react-shape-view",
+      "attrs": {
+        "body": {
+          "stroke": "#d9dad7",
+          "strokeWidth": 2
+        },
+        "label": {
+          "text": "Martin Minulý"
+        }
+      },
+      "shape": "custom-react-node",
+      "zIndex": 10,
+      "id": "8d1dc9b6-a6be-463b-81e4-d72b41359f4c",
+      "data": {
+        "name": "Martin Minulý",
+        "gender": "male"
+      }
+    },
+    {
+      "position": {
+        "x": -537,
+        "y": 72
+      },
+      "size": {
+        "width": 100,
+        "height": 100
+      },
+      "view": "react-shape-view",
+      "attrs": {
+        "body": {
+          "stroke": "#FF0000",
+          "strokeWidth": 4
+        },
+        "label": {
+          "text": "Evžen Minulý"
+        }
+      },
+      "shape": "custom-react-node",
+      "zIndex": 10,
+      "id": "a9280bc4-0b27-4d28-952d-a818f13d2da7",
+      "data": {
+        "name": "Evžen Minulý",
+        "gender": "male"
+      }
+    },
+    {
+      "position": {
+        "x": -132,
+        "y": 65
+      },
+      "size": {
+        "width": 100,
+        "height": 100
+      },
+      "view": "react-shape-view",
+      "attrs": {
+        "body": {
+          "stroke": "#d9dad7",
+          "strokeWidth": 2
+        },
+        "label": {
+          "text": "Emila Minulá (Kováčová) "
+        }
+      },
+      "shape": "custom-react-node",
+      "zIndex": 10,
+      "id": "d1062341-b54a-45df-a66e-2caea6dd8cae",
+      "data": {
+        "name": "Emila Minulá (Kováčová) ",
+        "gender": "female"
+      }
+    },
+    {
+      "position": {
+        "x": 219,
+        "y": 335
+      },
+      "size": {
+        "width": 100,
+        "height": 100
+      },
+      "view": "react-shape-view",
+      "attrs": {
+        "body": {
+          "stroke": "#d9dad7",
+          "strokeWidth": 2
+        },
+        "label": {
+          "text": "Lucka Minulá (Poláková) "
+        }
+      },
+      "shape": "custom-react-node",
+      "zIndex": 10,
+      "id": "c6a4db50-664d-4e22-897f-ca18207f2fb0",
+      "data": {
+        "name": "Lucka Minulá (Poláková) ",
+        "gender": "female"
+      }
+    }
+  ]
+}

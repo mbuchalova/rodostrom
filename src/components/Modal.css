@@ -1,0 +1,22 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  width: 90%; /* Ширина 90% от ширины экрана */
+  max-width: 90%;
+  box-sizing: border-box; /* Учитывает padding и border в общей ширине */
+  /* Убираем стандартные стили, чтобы отображать только содержимое */
+  background: none;
+  border: none;
+  padding: 0;
+}
