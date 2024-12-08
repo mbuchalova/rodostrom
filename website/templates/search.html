@@ -2,26 +2,66 @@
 
 {% block title %} Vyhľadať predka {% endblock %}
 
+{% block extra_styles %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search/index.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search/result_card.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/search/info_modal.css') }}">
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/search/info_modal.js') }}"></script>
+{% endblock %}
+
 {% block content %}
 
-<section class = 'container'>
-	<form class = 'd-flex flex-column align-items-center justify-content-center' method="post" id="createRequestForm">
-		<fieldset class = "mb-3">
-			<legend>Zadanie známych údajov</legend>
-			<p>Vyplnte čo najviac údajov</p>
-			<p>Môžete zadať aj nepresné informácie</p>
-			<p><label for="order_code">Meno:</label>
-			<input type="text" name="name" id="name" size="20"></p>
-			<p><label for="surname">Priezvisko:</label>
-			<input type="text" name="surname" id="name" size="20"></p>
-			<p><label for="birth_date">Dátum narodenia:</label>
-			<input type="date" name="birth_date" id="birth_date" size="20"></p>
-			<p><label for="death_date">Dátum úmrtia:</label>
-			<input type="date" name="death_date" id="death_date" size="20"></p>
-			<p>...</p>
-		</fieldset>
-		<p><input type="submit" name="search" id="search" value="VYHĽADAŤ"></p>
-	</form>
+<section class="container d-flex">
+    <div id="search-form-area" class="form-area">
+        <form class="d-flex flex-column align-items-center justify-content-center" method="post" id="createRequestForm">
+            <fieldset class="mb-3">
+                <legend>Zadanie známych údajov</legend>
+                <p>Vyplnte čo najviac údajov</p>
+                <p>Môžete zadať aj nepresné informácie</p>
+                <p><label for="name">Meno:</label>
+                <input type="text" name="name" id="name" size="20"></p>
+                <p><label for="surname">Priezvisko:</label>
+                <input type="text" name="surname" id="surname" size="20"></p>
+                <p><label for="gender">Pohlavie:</label>
+                <select name="gender" id="gender">
+                    <option value="unknown">Neznáme</option>
+                    <option value="male">Muž</option>
+                    <option value="female">Žena</option>
+                    <option value="other">Iné</option>
+                </select>
+                <p><label for="birth_date">Dátum narodenia:</label>
+                <input type="date" name="birth_date" id="birth_date" size="20"></p>
+                <p><label for="death_date">Dátum úmrtia:</label>
+                <input type="date" name="death_date" id="death_date" size="20"></p>
+                <p><label for="birth_city">Miesto narodenia:</label>
+                <input type="text" name="birth_city" id="birth_city" size="20"></p>
+                <p><label for="death_city">Miesto úmrtia:</label>
+                <input type="text" name="death_city" id="death_city" size="20"></p>
+            </fieldset>
+            <p><input type="submit" name="search" id="search" value="VYHĽADAŤ"></p>
+        </form>
+    </div>
+
+    <!-- Search Results -->
+    <div id="search-results-area" class="results-area">
+        {% if search_results %}
+            <h2>Výsledky vyhľadávania</h2>
+            <div class="results-container">
+                {% for result in search_results %}
+                    {% include 'partials/search/result_card.html' %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="no-results">
+                 <p>Zatiaľ žiadne výsledky</p>
+            </div>
+        {% endif %}
+    </div>
 </section>
+
+{% include 'partials/search/info_modal.html' %}
 
 {% endblock %}

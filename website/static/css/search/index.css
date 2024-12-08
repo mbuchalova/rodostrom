@@ -1,0 +1,76 @@
+.container.d-flex {
+    display: flex;
+    justify-content: space-between; /* Align form and results horizontally */
+    align-items: center; /* Center form and results vertically */
+    gap: 2em; /* Space between the form and results */
+    min-height: 100%; /* Ensure the container takes up full height of the gray block */
+}
+
+#search-form-area {
+    background-color: #f8f8f8; /* Match the search results area */
+    border: 1px solid #d9dad7; /* Match border style */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1.5em; /* Padding inside the box */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
+    margin: 1em; /* Space around the form area */
+    width: 45%; /* Adjust width if needed */
+}
+
+
+#search-results-area {
+    flex: 2; /* Results take 2 parts of available space */
+    max-width: 50%; /* Prevent it from becoming too wide */
+    background-color: #f8f8f8;
+    padding: 1.5em;
+    border-radius: 10px;
+    border: 1px solid #d9dad7;
+    overflow: hidden; /* Prevents overflow outside the container */
+    display: flex;
+    flex-direction: column; /* Ensures children are stacked vertically */
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap; /* Allow flexible layout of cards */
+    gap: 1em; /* Add spacing between cards */
+    max-height: 700px; /* Set maximum height for the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 0.5em; /* Add some padding for better scroll visibility */
+    scrollbar-width: thin; /* For modern browsers, make the scrollbar thin */
+    scrollbar-color: #d9dad7 #f8f8f8; /* Custom colors for the scrollbar */
+}
+
+.results-container::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+}
+
+.results-container::-webkit-scrollbar-thumb {
+    background: #d9dad7; /* Color of the scrollbar thumb */
+    border-radius: 10px; /* Rounded corners for the scrollbar */
+}
+
+.results-container::-webkit-scrollbar-track {
+    background: #f8f8f8; /* Background of the scrollbar track */
+}
+
+
+#search-results-area h2 {
+    margin-bottom: 10px;
+}
+
+.results-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+@media (max-width: 768px) {
+    .container.d-flex {
+        flex-direction: column; /* Stack form and results vertically on smaller screens */
+        align-items: flex-start; /* Align items to the start for mobile view */
+    }
+
+    #search-form-area, #search-results-area {
+        max-width: 100%;
+    }
+}
