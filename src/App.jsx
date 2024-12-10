@@ -10,18 +10,14 @@ import './styles.css';
 const App = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [parentNode, setParentNode] = useState(null);
-  //const navigate = useNavigate();
 
   const handleAddAncestor = (node) => {
     setParentNode(node);
     setIsModalOpen(true);
-   //navigate('/search');
   };
 
   const handleAncestorSelect = (ancestorData) => {
-    // Логика добавления предка в дерево
     setIsModalOpen(false);
-    //navigate(-1); // Возврат к предыдущему маршруту
   };
 
   return (<Router>

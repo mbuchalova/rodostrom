@@ -1,4 +1,3 @@
-// components/Modal.jsx
 import React from 'react';
 import './Modal.css';
 
@@ -8,7 +7,14 @@ const Modal = ({ isOpen, onClose, children }) => {
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-        {children}
+        <div className="modal-header">
+          <button className="modal-close-button" onClick={onClose}>
+            &times;
+          </button>
+        </div>
+        <div className="modal-body">
+          {children}
+        </div>
       </div>
     </div>
   );

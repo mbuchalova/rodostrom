@@ -6,22 +6,54 @@ import './info_modal.css';
 
 // Helper function to generate random test data
 const generateRandomPeople = (count) => {
-  const names = ['John', 'Jane', 'Michael', 'Emily', 'Chris', 'Sarah'];
-  const surnames = ['Doe', 'Smith', 'Johnson', 'Williams', 'Brown'];
-  const genders = ['male', 'female'];
-  const cities = ['Bratislava', 'Košice', 'Prešov', 'Žilina'];
+  const arr = [
+    {
+      name: "Ján",
+      surname: "Sokol",
+      role: "Šlachtic",
+      gender: "male",
+      matrial_status: "Manželka, 2 deti",
+      birth_date: "21.6.1857",
+      death_date: "1892",
+      birth_city: "Smolenice",
+      death_city: "Smolenice"
+    },
+    {
+      name: "Ján",
+      surname: "Sokol",
+      role: "Krajčír",
+      gender: "male",
+      matrial_status: "Manželka",
+      birth_date: "15.6.1957",
+      death_date: "",
+      birth_city: "Banská Bystrica",
+      death_city: ""
+    },
+    {
+      name: "Jozef",
+      surname: "Sokol",
+      role: "Roľník",
+      gender: "male",
+      matrial_status: "Manželka, 3 deti",
+      birth_date: "21.6.1857",
+      death_date: "1892",
+      birth_city: "Banská Bystrica",
+      death_city: "Smolenice"
+    },
+    {
+      name: "Ján",
+      surname: "Sokolý",
+      role: "Roľník",
+      gender: "male",
+      matrial_status: "Slobodný",
+      birth_date: "14.3.1995",
+      death_date: "",
+      birth_city: "Smolenice",
+      death_city: ""
+    },
+  ];
 
-  return Array.from({ length: count }, (_, id) => ({
-    id,
-    name: names[Math.floor(Math.random() * names.length)],
-    surname: surnames[Math.floor(Math.random() * surnames.length)],
-    gender: genders[Math.floor(Math.random() * genders.length)],
-    birth_date: `19${Math.floor(Math.random() * 100)}-01-01`,
-    death_date: `20${Math.floor(Math.random() * 30)}-01-01`,
-    birth_city: cities[Math.floor(Math.random() * cities.length)],
-    death_city: cities[Math.floor(Math.random() * cities.length)],
-    details: 'Randomly generated person',
-  }));
+  return arr;
 };
 
 const AncestorSearch = ({onSelect}) => {
@@ -63,6 +95,7 @@ const AncestorSearch = ({onSelect}) => {
   };
 
   const openModal = (result) => {
+    console.log(result);
     setModalData(result);
   };
 
@@ -176,11 +209,14 @@ const AncestorSearch = ({onSelect}) => {
               {searchResults.map((result) => (
                 <div key={result.id} className="result-card">
                   <div className="result-left">
-                    <div className="icon-circle"></div>
+                    <div className="icon-circle" onClick={() => openModal(result)}></div>
                   </div>
                   <div className="result-center">
-                    <h3>{result.name}</h3>
-                    <p>{result.details}</p>
+                    <h3>{result.name} {result.surname}</h3>
+                    <p>{result.role}</p>
+                    <p>{result.matrial_status}</p>
+                    {result.death_date && <p>Death date: {result.death_date}</p>}
+                    {result.death_city && <p>Death city: {result.death_city}</p>}
                   </div>
                   <div className="result-right">
                     <button
@@ -202,22 +238,24 @@ const AncestorSearch = ({onSelect}) => {
       </div>
 
       {modalData && (
-        <div className="modal" onClick={closeModal}>
+        <div className={`modal ${modalData ? 'show' : ''}`} onClick={closeModal}>
           <div className="modal-content" onClick={(e) => e.stopPropagation()}>
             <span className="close-button" onClick={closeModal}>
               &times;
             </span>
             <div className="profile-picture"></div>
             <div className="profile-info">
-              <h3>{modalData.name}</h3>
-              <p>{modalData.details}</p>
-            </div>
-            <div className="modal-body">
-              {/* Дополнительная информация */}
+              <h3>{modalData.name} {modalData.surname}</h3>
+              <p>{modalData.role}</p>
+              <p>{modalData.matrial_status}</p>
+              <p>{modalData.birth_date}</p>
+              <p>{modalData.birth_city}</p>
+              {modalData.death_date && <p>Death date: {modalData.death_date}</p>}
+              {modalData.death_city && <p>Death city: {modalData.death_city}</p>}
             </div>
             <div className="modal-footer">
-              <button className="add-ancestor-button">
-                Добавить предка
+              <button className="add-ancestor-button" onClick={() => onSelect(modalData)}>
+                Pridať predka
               </button>
             </div>
           </div>

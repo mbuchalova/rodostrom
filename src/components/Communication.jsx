@@ -2,8 +2,7 @@ import React from 'react';
 
 const Communication = () => (
   <div>
-    <h2>Коммуникация</h2>
-    {/* Функционал коммуникации */}
+    <h2>Komunikácia</h2>
   </div>
 );
 

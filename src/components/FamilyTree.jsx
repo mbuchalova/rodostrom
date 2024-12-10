@@ -32,6 +32,27 @@ const FamilyTree = () => {
   let isDragging = false;
   let draggingNode = null;
 
+  const saveGraphToStorage = () => {
+    if (graph) {
+      const data = graph.toJSON();
+      localStorage.setItem('familyTreeData', JSON.stringify(data));
+      console.log('Graph saved to local storage');
+    }
+  };
+
+  const loadGraphFromStorage = () => {
+    const savedData = localStorage.getItem('familyTreeData');
+    if (savedData) {
+      try {
+        const data = JSON.parse(savedData);
+        graph.fromJSON(data);
+        console.log('Graph was loadaed from localStorage');
+      } catch (error) {
+        console.error('error:', error);
+      }
+    }
+  };  
+
   // handle search modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -41,9 +62,9 @@ const FamilyTree = () => {
       const data = graph.toJSON();
       const jsonString = JSON.stringify(data, null, 2);
       console.log('Экспортированные данные графа:', jsonString);
-      // Здесь вы можете сохранить jsonString в файл или отправить на сервер
     }
   };
+  
 
   // import graph from json
   const importGraph = (jsonString) => {
@@ -93,6 +114,7 @@ const FamilyTree = () => {
         nodeMovable: false,
       }
     });
+
     graphRef.current = g;
 
     const initialNode = g.addNode({
@@ -131,16 +153,15 @@ const FamilyTree = () => {
 
     g.on('node:mouseup', () => {
       console.log("mouseup")
-      isDragging = false; // Сбрасываем флаг перетаскивания
-      draggingNode = null; // Сбрасываем текущий узел
-      startPosition = null; // Очищаем начальную позицию
+      isDragging = false; 
+      draggingNode = null;
+      startPosition = null;
     });
 
     g.on('blank:mousedown', ({ e }) => {
-      if (e.button === 0) { // Проверяем левую кнопку мыши
+      if (e.button === 0) {
         isPanning = true;
         startPoint = { x: e.clientX, y: e.clientY };
-        // Сохраняем текущие координаты графа
         const currentTranslate = g.translate();
         initialTranslate = { x: currentTranslate.tx, y: currentTranslate.ty };
       }
@@ -149,7 +170,6 @@ const FamilyTree = () => {
     g.on('blank:mousemove', ({ e }) => {
       const dx = e.clientX - startPoint.x;
       const dy = e.clientY - startPoint.y;
-      // Устанавливаем новое смещение относительно начального положения
       g.translate(initialTranslate.x + dx, initialTranslate.y + dy);
     });
 
@@ -159,31 +179,36 @@ const FamilyTree = () => {
     });
 
     g.on('node:click', ({ node }) => {
-      // Сбрасываем выделение у всех узлов
       g.getNodes().forEach((n) => {
-        n.attr('body/stroke', '#d9dad7'); // Возвращаем стандартный цвет
+        n.attr('body/stroke', '#d9dad7');
         n.attr('body/strokeWidth', 2);
       });
     
-      // Устанавливаем выделение для текущего узла
-      node.attr('body/stroke', '#FF0000'); // Красная рамка
-      node.attr('body/strokeWidth', 4); // Толщина рамки
+      node.attr('body/stroke', '#FF0000'); 
+      node.attr('body/strokeWidth', 4); 
     });
 
-    // Обработка нажатия на кнопку "плюс"
     g.on('node:button-plus:click', ({ node }) => {
       console.log('button-plus:click')
       setParentNode(node);
       setIsModalOpen(true);
     });
 
-    // Обработка нажатия на кнопку "минус"
     g.on('node:button-minus:click', ({ node }) => {
       g.removeNode(node);
     });
 
     setGraph(g);
     g.fromJSON(sampleData);
+
+    loadGraphFromStorage();
+
+    const handleGraphChange = () => saveGraphToStorage();
+    g.on('node:added', handleGraphChange);
+    g.on('node:removed', handleGraphChange);
+    g.on('edge:added', handleGraphChange);
+    g.on('edge:removed', handleGraphChange);
+    g.on('node:change:position', handleGraphChange);
 
     handleZoomOut();
     g.centerContent();
@@ -251,8 +276,6 @@ const FamilyTree = () => {
       </Modal>
       
     </section>
-    
-    
   );
 };
 

@@ -20,3 +20,20 @@
   border: none;
   padding: 0;
 }
+
+/* Close Button */
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #666;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-close-button:hover {
+  color: black;
+}
