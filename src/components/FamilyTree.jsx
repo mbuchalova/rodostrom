@@ -32,27 +32,6 @@ const FamilyTree = () => {
   let isDragging = false;
   let draggingNode = null;
 
-  const saveGraphToStorage = () => {
-    if (graph) {
-      const data = graph.toJSON();
-      localStorage.setItem('familyTreeData', JSON.stringify(data));
-      console.log('Graph saved to local storage');
-    }
-  };
-
-  const loadGraphFromStorage = () => {
-    const savedData = localStorage.getItem('familyTreeData');
-    if (savedData) {
-      try {
-        const data = JSON.parse(savedData);
-        graph.fromJSON(data);
-        console.log('Graph was loadaed from localStorage');
-      } catch (error) {
-        console.error('error:', error);
-      }
-    }
-  };  
-
   // handle search modal
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -65,7 +44,6 @@ const FamilyTree = () => {
     }
   };
   
-
   // import graph from json
   const importGraph = (jsonString) => {
     if (graph) {
@@ -201,14 +179,33 @@ const FamilyTree = () => {
     setGraph(g);
     g.fromJSON(sampleData);
 
-    loadGraphFromStorage();
+    const handleGraphChange = () => {
+      if (g) {
+        const data = g.toJSON();
+        localStorage.setItem('familyTreeData', JSON.stringify(data));
+        console.log('Graph saved to local storage');
+      }
+    };;
 
-    const handleGraphChange = () => saveGraphToStorage();
     g.on('node:added', handleGraphChange);
     g.on('node:removed', handleGraphChange);
     g.on('edge:added', handleGraphChange);
     g.on('edge:removed', handleGraphChange);
     g.on('node:change:position', handleGraphChange);
+    g.on('node:change:data', handleGraphChange);
+
+    const savedData = localStorage.getItem('familyTreeData');
+    if (savedData) {
+      try {
+        const data = JSON.parse(savedData);
+        g.fromJSON(data);
+        console.log('Graph restored from localStorage');
+      } catch (error) {
+        console.error('Error loading graph:', error);
+      }
+    } else {
+      g.fromJSON(sampleData); // Load default sample data if no saved data exists
+    }
 
     handleZoomOut();
     g.centerContent();
@@ -246,8 +243,8 @@ const FamilyTree = () => {
         <button onClick={handleZoomIn}>+</button>
         <button onClick={handleZoomOut}>−</button>
       </div>
-      <button onClick={exportGraph}>Export graph</button>
-        <button
+      {/* <button onClick={exportGraph}>Export graph</button> */}
+        {/* <button
           onClick={() => {
             const jsonString = prompt('Insert json for import:');
             if (jsonString) {
@@ -256,8 +253,8 @@ const FamilyTree = () => {
           }}
         >
           Import graph
-        </button>
-        <button onClick={renameSelectedNode} disabled={!selectedNode}>Rename node</button>
+        </button> */}
+        {/* <button onClick={renameSelectedNode} disabled={!selectedNode}>Rename node</button>
         {isRenaming && (
           <div>
             <input
@@ -267,7 +264,7 @@ const FamilyTree = () => {
             />
             <button onClick={handleRename}>Save</button>
           </div>
-        )}
+        )} */}
         <div ref={containerRef} />
       </div>
 
