@@ -76,21 +76,25 @@ const AncestorSearch = ({onSelect}) => {
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
+  const removeDiacritics = (str) => {
+    if (!str) return '';
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  };
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Search logic: filter random people based on form data
     const results = randomPeople.filter((person) => {
       return (
-        (!formData.name || person.name.toLowerCase().includes(formData.name.toLowerCase())) &&
-        (!formData.surname || person.surname.toLowerCase().includes(formData.surname.toLowerCase())) &&
+        (!formData.name || removeDiacritics(person.name.toLowerCase()).includes(removeDiacritics(formData.name.toLowerCase()))) &&
+        (!formData.surname || removeDiacritics(person.surname.toLowerCase()).includes(removeDiacritics(formData.surname.toLowerCase()))) &&
         (formData.gender === 'unknown' || person.gender === formData.gender) &&
         (!formData.birth_date || person.birth_date === formData.birth_date) &&
         (!formData.death_date || person.death_date === formData.death_date) &&
-        (!formData.birth_city || person.birth_city.toLowerCase().includes(formData.birth_city.toLowerCase())) &&
-        (!formData.death_city || person.death_city.toLowerCase().includes(formData.death_city.toLowerCase()))
+        (!formData.birth_city || removeDiacritics(person.birth_city.toLowerCase()).includes(removeDiacritics(formData.birth_city.toLowerCase()))) &&
+        (!formData.death_city || removeDiacritics(person.death_city.toLowerCase()).includes(removeDiacritics(formData.death_city.toLowerCase())))
       );
     });
-
+  
     setSearchResults(results);
   };
 
