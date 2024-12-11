@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, NavLink } from 'react-router-dom';
 import FamilyTree from './components/FamilyTree';
 import AncestorSearch from './components/AncestorSearch';
 import Communication from './components/Communication';
@@ -20,29 +19,39 @@ const App = () => {
     setIsModalOpen(false);
   };
 
-  return (<Router>
-    <header>
-      <a>
-        <h1>RODOSTROM</h1>
-      </a>
-    </header>
-    <div>
-      <nav>
-        <a><Link to="/">Môj rodostrom</Link></a>
-        <a><Link to="/search">Vyhľadať predka</Link></a>
-        <a><Link to="/communication">Komunikácia</Link></a>
-        <a><Link to="/shared-trees">Verejné stromy</Link></a>
-        <a>Odhlásiť sa</a>
-      </nav>
+  return (
+    <Router>
+      <header>
+        <a>
+          <h1>RODOSTROM</h1>
+        </a>
+      </header>
+      <div>
+        <nav>
+          <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Môj rodostrom
+          </NavLink>
+          <NavLink to="/search" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Vyhľadať predka
+          </NavLink>
+          <NavLink to="/communication" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Komunikácia
+          </NavLink>
+          <NavLink to="/shared-trees" className={({ isActive }) => (isActive ? 'active' : '')}>
+            Verejné stromy
+          </NavLink>
+          <a>Odhlásiť sa</a>
+        </nav>
 
-      <Routes>
-        <Route path="/" element={<FamilyTree />} />
-        <Route path="/search" element={<AncestorSearch />} />
-        <Route path="/communication" element={<Communication />} />
-        <Route path="/shared-trees" element={<SharedTrees />} />
-      </Routes>
-    </div>
-  </Router>);
-}
+        <Routes>
+          <Route path="/" element={<FamilyTree />} />
+          <Route path="/search" element={<AncestorSearch />} />
+          <Route path="/communication" element={<Communication />} />
+          <Route path="/shared-trees" element={<SharedTrees />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+};
 
 export default App;

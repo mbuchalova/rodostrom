@@ -1,59 +1,19 @@
 header {
 	border-bottom: 2px solid #d9dad7;
+	text-align: center;
+	height: 110px;
+    box-sizing: border-box;
+	
 }
+
 section{
 	color: #3b4754;
 	border-radius: 20px;
 	background-color: #edf0f4;
 	margin: 5em 20em 0em 20em;
 	padding: 2em 5em 5em 3em;
-	text-align: center;
 	float:none;
 	clear:both;
-}
-#user_info{
-	margin: 1% 2% 6% 21%;
-	padding: 2% 1%;
-	width: 25%;
-	float:left;	
-	clear:none;
-	height: 290px;
-}
-
-#password_change{
-	margin: 1% 21% 6% 2%;
-	padding: 2% 1%;
-	width: 25%;
-	float:left;
-	clear:none;	
-	height: 290px;
-}
-
-
-#prihlas {
-	margin: -30px;
-	}
-@media (max-width: 768px) {
-    section {
-        margin: 3% 0% 0% 0%;
-        padding: 1.5em;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        
-    }
-    
-    #prihlas {
-    	margin : 0%;
-    }
-    
-    #user_info, #password_change {
-        margin: 2% auto 2% auto;
-        padding: 10%;
-        width : initial;
-        float: initial;
-        height: initial;
-        
-    }
 }
 
 #main_section{
@@ -97,67 +57,42 @@ p{
 	padding-bottom: 0.3em;
 }
 
-input[type="text"],input[type="password"], input[type="date"], input[type="time"], select{
+input, select{
 	border: 0.1em 0.1em 0.1em 0.1em;
 	border-color: #d9dad7;
 	border-radius: 8px;
 	height: 25px;
-	margin-top: 7px;
+	width: 200px;
+	margin: 2px;
 }
 
-textarea{
-	border: 0.1em 0.1em 0.1em 0.1em;
-	border-color: #d9dad7;
-	border-radius: 8px;
-	margin-top: 7px;
-}
 
 input[type="submit"]{
-	background-color: #29323d;
-	color: white;
-	border-radius: 20px;
-	padding: 1em 1em 1em 1em;
-	margin: 1em 2em;
-}
-nav{
+	color: black;
+	border-radius: 8px;
+	height: 30px;
+	width: 200px;
 	text-align: center;
-	padding-top: 0.7em;
+}
+
+form {
+  max-width: 400px;
+  margin: 0 auto;
+  font-size: 15px;
+}
+
+form button {
+  align-self: center;
 }
 
 
-
-@media screen and (max-width: 768px) {
-  nav {
-    display: flex;
-    flex-direction: column;
-  }
-}
 a{
 	margin: 0em 1em 0em 1em;
 	font-weight:bold;
 	color: #29323d;
 	font-size: 20px;
 }
-table {
-	width: 90%;
-	border-collapse: collapse;
-	border: 3px solid #d6d6d6;
-	margin:auto;
-}
-table tr:nth-child(even) {
-	background-color: #ffffff;
-	padding: 8px;
-}
-th,td{
-	padding: 5px;
-}
-table tr:nth-child(odd) {
-	background-color: #ebebeb;
-	padding: 8px;
-}
-table tr:first-child {
-	background-color: #d6d6d6;
-}
+
 
 #MAIN_TEXT {
 text-decoration: none;
@@ -168,5 +103,27 @@ float:right;
 padding-right:2.5%;
 }
 
+nav{
+	text-align: center;
+	border-bottom: 2px solid #d9dad7;
+	display: flex;
+	justify-content: space-evenly; 
+	width: 100%;
+}
 
+nav a {
+  text-decoration: none;
+  display: block;
+  width: 20%;
+  padding: 10px 0;
+  text-align: center;
+}
 
+nav a.active {
+  background-color: #e6ffe6;
+  color: black;
+}
+
+nav a:hover {
+  color: #007bff;
+}

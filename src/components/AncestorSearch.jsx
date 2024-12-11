@@ -118,9 +118,10 @@ const AncestorSearch = ({onSelect}) => {
             <legend>Zadanie známych údajov</legend>
             <p>Vyplnte čo najviac údajov</p>
             <p>Môžete zadať aj nepresné informácie</p>
-            <p>
-              <label htmlFor="name">Meno:</label>
-              <input
+            <table>
+			<tr>
+              <td align="right"><label htmlFor="name">Meno:</label></td>
+               <input
                 type="text"
                 name="name"
                 id="name"
@@ -128,9 +129,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.name}
                 onChange={handleChange}
               />
-            </p>
-            <p>
-              <label htmlFor="surname">Priezvisko:</label>
+            </tr>
+            <tr>
+               <td align="right"><label htmlFor="surname">Priezvisko:</label></td>
               <input
                 type="text"
                 name="surname"
@@ -139,9 +140,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.surname}
                 onChange={handleChange}
               />
-            </p>
-            <p>
-              <label htmlFor="gender">Pohlavie:</label>
+            </tr>
+            <tr>
+              <td align="right"><label htmlFor="gender">Pohlavie:</label></td>
               <select
                 name="gender"
                 id="gender"
@@ -153,9 +154,9 @@ const AncestorSearch = ({onSelect}) => {
                 <option value="female">Žena</option>
                 <option value="other">Iné</option>
               </select>
-            </p>
-            <p>
-              <label htmlFor="birth_date">Dátum narodenia:</label>
+            </tr>
+            <tr>
+              <td align="right"><label htmlFor="birth_date">Dátum narodenia:</label></td>
               <input
                 type="date"
                 name="birth_date"
@@ -164,9 +165,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.birth_date}
                 onChange={handleChange}
               />
-            </p>
-            <p>
-              <label htmlFor="death_date">Dátum úmrtia:</label>
+            </tr>
+            <tr>
+              <td align="right"><label htmlFor="death_date">Dátum úmrtia:</label></td>
               <input
                 type="date"
                 name="death_date"
@@ -175,9 +176,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.death_date}
                 onChange={handleChange}
               />
-            </p>
-            <p>
-              <label htmlFor="birth_city">Miesto narodenia:</label>
+            </tr>
+            <tr>
+              <td align="right"><label htmlFor="birth_city">Miesto narodenia:</label></td>
               <input
                 type="text"
                 name="birth_city"
@@ -186,9 +187,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.birth_city}
                 onChange={handleChange}
               />
-            </p>
-            <p>
-              <label htmlFor="death_city">Miesto úmrtia:</label>
+            </tr>
+            <tr>
+              <td align="right"><label htmlFor="death_city">Miesto úmrtia:</label></td>
               <input
                 type="text"
                 name="death_city"
@@ -197,7 +198,9 @@ const AncestorSearch = ({onSelect}) => {
                 value={formData.death_city}
                 onChange={handleChange}
               />
-            </p>
+            </tr>
+			
+			</table>
           </fieldset>
           <p>
             <input type="submit" name="search" id="search" value="VYHĽADAŤ" />
@@ -213,7 +216,7 @@ const AncestorSearch = ({onSelect}) => {
               {searchResults.map((result) => (
                 <div key={result.id} className="result-card">
                   <div className="result-left">
-                    <div className="icon-circle" onClick={() => openModal(result)}></div>
+                    <div className="icon-circle" onClick={() => openModal(result)}>i</div>
                   </div>
                   <div className="result-center">
                     <h3>{result.name} {result.surname}</h3>
@@ -247,6 +250,7 @@ const AncestorSearch = ({onSelect}) => {
             <span className="close-button" onClick={closeModal}>
               &times;
             </span>
+			<p></p>
             <div className="profile-picture"></div>
             <div className="profile-info">
               <h3>{modalData.name} {modalData.surname}</h3>
@@ -262,6 +266,7 @@ const AncestorSearch = ({onSelect}) => {
                 Pridať predka
               </button>
             </div>
+			<p></p>
           </div>
         </div>
       )}
