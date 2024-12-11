@@ -1,0 +1,58 @@
+/* components/CustomNode.css */
+.custom-node {
+  text-align: center;
+  width: 120px; /* Увеличено для учета рамки */
+  padding: 10px; /* Отступы внутри рамки */
+  border: 2px solid #d9dad7; /* Рамка */
+  border-radius: 8px; /* Скругленные углы */
+  background-color: #ffffff; /* Белый фон */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+}
+
+.custom-node.selected {
+  border: 4px solid #ff0000; /* Highlight outline */
+}
+
+
+.node-image {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto; /* Центрирование */
+}
+
+.node-name {
+  margin-top: 5px;
+  font-size: 14px;
+  color: #29323d;
+}
+
+.node-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px; /* Больше расстояние от имени */
+}
+
+.node-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  font-size: 16px; /* Сделано чуть больше */
+  line-height: 30px;
+}
+
+.node-button:last-child {
+  background-color: #F44336;
+}
+
+.node-button:hover {
+  background-color: #3e8e41; /* Тёмно-зелёный для зелёной кнопки */
+}
+
+.node-button:last-child:hover {
+  background-color: #e53935; /* Тёмно-красный для красной кнопки */
+}
