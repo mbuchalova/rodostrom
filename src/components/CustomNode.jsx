@@ -1,9 +1,10 @@
 import './CustomNode.css';
 
 
+
 export const CustomNode = ({ node }) => {
   const data = node.getData() || {};
-  const { name, surname, gender } = data;
+  const { name, surname, gender, selected } = data;
 
   const imageUrl = gender === 'male'
     ? `${process.env.PUBLIC_URL}/male.png`
@@ -23,7 +24,7 @@ export const CustomNode = ({ node }) => {
   };
 
   return (
-    <div className="custom-node">
+    <div className={`custom-node ${selected ? 'selected' : ''}`}> 
       <img src={imageUrl} alt={gender} className="node-image" />
       <div className="node-name">{name} {surname}</div>
       <div className="node-buttons">

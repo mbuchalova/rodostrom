@@ -9,6 +9,11 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
 }
 
+.custom-node.selected {
+  border: 4px solid #ff0000; /* Highlight outline */
+}
+
+
 .node-image {
   width: 80px;
   height: 80px;

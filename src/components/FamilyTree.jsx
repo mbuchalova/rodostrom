@@ -58,23 +58,35 @@ const FamilyTree = () => {
   };
 
   const addNode = (data) => {
-    if (!graph || !parentNode) return;
+    if (!graph) return;
 
-    const { x, y } = parentNode.position();
-    const newNode = graph.addNode({
-      shape: 'custom-react-node',
-      x: x + 150,
-      y,
-      data,
-    });
-    graph.addEdge({
-      source: parentNode,
-      target: newNode,
-      zIndex: 1,
-    });
+    if(!parentNode){
+      graph.addNode({
+        shape: 'custom-react-node',
+        x: -400, // Default position (adjust as needed)
+        y: -300,
+        data: { name: 'New Node', gender: 'male' },
+      });
+    }
+    else{
+      const { x, y } = parentNode.position();
+      const xOffset = data.gender === 'male' ? -100 : 100; // -100 for male, +100 for female
 
-    setIsModalOpen(false); // Close the modal after adding the node
-    setParentNode(null);
+      const newNode = graph.addNode({
+        shape: 'custom-react-node',
+        x: x + xOffset,
+        y: y - 200,
+        data,
+      });
+      graph.addEdge({
+        source: parentNode,
+        target: newNode,
+        zIndex: 1,
+      });
+
+      setIsModalOpen(false); // Close the modal after adding the node
+      setParentNode(null);
+    }
   };
 
   useEffect(() => {
@@ -135,6 +147,13 @@ const FamilyTree = () => {
       draggingNode = null;
       startPosition = null;
     });
+    g.on('blank:click', () => {
+      g.getNodes().forEach((n) => {
+        const data = n.getData();
+        n.setData({selected: false });
+
+      });
+    });
 
     g.on('blank:mousedown', ({ e }) => {
       if (e.button === 0) {
@@ -155,15 +174,17 @@ const FamilyTree = () => {
       isPanning = false;
       startPoint = null;
     });
+    
 
     g.on('node:click', ({ node }) => {
       g.getNodes().forEach((n) => {
-        n.attr('body/stroke', '#d9dad7');
-        n.attr('body/strokeWidth', 2);
+        const data = n.getData();
+        n.setData({selected: false });
+
       });
     
-      node.attr('body/stroke', '#FF0000'); 
-      node.attr('body/strokeWidth', 4); 
+      const data = node.getData();
+      node.setData({selected: true });
     });
 
     g.on('node:button-plus:click', ({ node }) => {
