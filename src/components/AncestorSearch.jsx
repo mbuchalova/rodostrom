@@ -13,8 +13,8 @@ const generateRandomPeople = (count) => {
       role: "Šlachtic",
       gender: "male",
       matrial_status: "Manželka, 2 deti",
-      birth_date: "21.6.1857",
-      death_date: "1892",
+      birth_date: "21.6.1917",
+      death_date: "1962",
       birth_city: "Smolenice",
       death_city: "Smolenice"
     },
@@ -56,7 +56,7 @@ const generateRandomPeople = (count) => {
   return arr;
 };
 
-const AncestorSearch = ({onAddAncestor}) => {
+const AncestorSearch = ({onSelect,addAncestorNode}) => {
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -77,11 +77,15 @@ const AncestorSearch = ({onAddAncestor}) => {
   };
 
   const handleAddAncestor = (data) => {
-    if (onAddAncestor) {
-      onAddAncestor(data);
-    } else {
-      console.error("onAddAncestor is not provided or is not a function");
-    }
+    //if (onAddAncestor) {
+    addAncestorNode(data);
+
+      //const storedAncestors = JSON.parse(localStorage.getItem('newAncestors')) || [];
+      //localStorage.setItem('newAncestors', JSON.stringify([...storedAncestors, data]));
+     // console.log('Person saved to localStorage:', data);
+    //} else {
+    //  console.error("onAddAncestor is not provided or is not a function");
+    //}
   };
 
   const removeDiacritics = (str) => {
@@ -236,7 +240,7 @@ const AncestorSearch = ({onAddAncestor}) => {
                   <div className="result-right">
                     <button
                       className="add-button"
-                      onClick={() => handleAddAncestor(result)}
+                      onClick={() => onSelect(result)}
                     >
                       +
                     </button>
@@ -270,7 +274,7 @@ const AncestorSearch = ({onAddAncestor}) => {
               {modalData.death_city && <p>Death city: {modalData.death_city}</p>}
             </div>
             <div className="modal-footer">
-              <button className="add-ancestor-button"  onClick={handleAddAncestor(modalData)}>
+              <button className="add-ancestor-button" onClick={() => onSelect(modalData)}>
                 Pridať predka
               </button>
             </div>

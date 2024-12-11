@@ -24,6 +24,8 @@ const FamilyTree = () => {
   const [isRenaming, setIsRenaming] = useState(false);
   const [newName, setNewName] = useState('');
   const [parentNode, setParentNode] = useState(null);
+  const [view, setView] = useState('familyTree'); // 'familyTree' or 'ancestorSearch'
+
 
   let isPanning = false;
   let startPoint = null;
@@ -63,10 +65,12 @@ const FamilyTree = () => {
     if(!parentNode){
       graph.addNode({
         shape: 'custom-react-node',
-        x: -400, // Default position (adjust as needed)
-        y: -300,
-        data: { name: 'New Node', gender: 'male' },
+        x: -800, // Default position (adjust as needed)
+        y: 400,
+        data,
       });
+      setIsModalOpen(false); // Close the modal after adding the node
+      setParentNode(null);
     }
     else{
       const { x, y } = parentNode.position();
@@ -150,9 +154,10 @@ const FamilyTree = () => {
     g.on('blank:click', () => {
       g.getNodes().forEach((n) => {
         const data = n.getData();
-        n.setData({selected: false });
+        n.setData({...data,selected: false });
 
       });
+
     });
 
     g.on('blank:mousedown', ({ e }) => {
@@ -203,6 +208,15 @@ const FamilyTree = () => {
     setGraph(g);
     g.fromJSON(sampleData);
 
+    const handleOpenModal = () => setIsModalOpen(true);
+
+    window.addEventListener('openFamilyTreeModal', handleOpenModal);
+
+    {/*
+    return () => {
+      window.removeEventListener('openFamilyTreeModal', handleOpenModal);
+    };
+    */}
     const handleGraphChange = () => {
       if (g) {
         const data = g.toJSON();
@@ -235,6 +249,8 @@ const FamilyTree = () => {
     g.centerContent();
   }, []);
 
+  
+
   const addAncestorNode = (ancestorData) => {
     if (!graph) return;
 
@@ -250,7 +266,6 @@ const FamilyTree = () => {
       data: ancestorData,
     });
   };
-
   const renameSelectedNode = () => {
     if (!selectedNode) return;
     setIsRenaming(true);
@@ -319,13 +334,13 @@ const FamilyTree = () => {
                
               </div>
             ) : (
-              <p>No node selected</p>
+              <p>Dvojklikom na člena stromu zobrazíte jeho informácie</p>
             )}
           </div>
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <AncestorSearch  onAddAncestor={addAncestorNode}/>
+        <AncestorSearch   onSelect={addNode}/>
       </Modal>
       
       

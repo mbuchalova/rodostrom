@@ -7,17 +7,15 @@ import SharedTrees from './components/SharedTrees';
 import './styles.css';
 
 const App = () => {
+  const [modalData, setModalData] = useState(null);
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [parentNode, setParentNode] = useState(null);
 
-  const handleAddAncestor = (node) => {
-    setParentNode(node);
-    setIsModalOpen(true);
+  const handleSearchClick = () => {
+    window.dispatchEvent(new CustomEvent('openFamilyTreeModal')); // Dispatch a custom event to open the modal
   };
 
-  const handleAncestorSelect = (ancestorData) => {
-    setIsModalOpen(false);
-  };
 
   return (
     <Router>
@@ -31,7 +29,15 @@ const App = () => {
           <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
             Môj rodostrom
           </NavLink>
-          <NavLink to="/search" className={({ isActive }) => (isActive ? 'active' : '')}>
+          <NavLink to="/search" 
+          className={({ isActive }) => (isActive ? 'active' : '')}
+          
+          onClick={(e) => {
+            e.preventDefault();
+            handleSearchClick(); // Trigger the modal as if a node's + button was clicked
+          }}
+            >
+          
             Vyhľadať predka
           </NavLink>
           <NavLink to="/communication" className={({ isActive }) => (isActive ? 'active' : '')}>
@@ -45,7 +51,8 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<FamilyTree />} />
-          <Route path="/search" element={<AncestorSearch />} />
+          {/*<Route path="/search" element={<AncestorSearch />} />*/}
+          <Route path="/search" element={<FamilyTree />} />
           <Route path="/communication" element={<Communication />} />
           <Route path="/shared-trees" element={<SharedTrees />} />
         </Routes>
