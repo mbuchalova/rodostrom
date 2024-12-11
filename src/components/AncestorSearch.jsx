@@ -10,11 +10,11 @@ const generateRandomPeople = (count) => {
     {
       name: "Ján",
       surname: "Sokol",
-      role: "Šlachtic",
+      role: "Šľachtic",
       gender: "male",
-      matrial_status: "Manželka, 2 deti",
-      birth_date: "21.6.1917",
-      death_date: "1962",
+      matrial_status: "Ženatý/Vydatá, 2 deti",
+      birth_date: "21.6.1877",
+      death_date: "1892",
       birth_city: "Smolenice",
       death_city: "Smolenice"
     },
@@ -23,7 +23,7 @@ const generateRandomPeople = (count) => {
       surname: "Sokol",
       role: "Krajčír",
       gender: "male",
-      matrial_status: "Manželka",
+      matrial_status: "Ženatý/Vydatá",
       birth_date: "15.6.1957",
       death_date: "",
       birth_city: "Banská Bystrica",
@@ -34,7 +34,7 @@ const generateRandomPeople = (count) => {
       surname: "Sokol",
       role: "Roľník",
       gender: "male",
-      matrial_status: "Manželka, 3 deti",
+      matrial_status: "Ženatý/Vydatá, 3 deti",
       birth_date: "21.6.1857",
       death_date: "1892",
       birth_city: "Banská Bystrica",
@@ -45,7 +45,7 @@ const generateRandomPeople = (count) => {
       surname: "Sokolý",
       role: "Roľník",
       gender: "male",
-      matrial_status: "Slobodný",
+      matrial_status: "Slobodný/á",
       birth_date: "14.3.1995",
       death_date: "",
       birth_city: "Smolenice",
@@ -128,7 +128,7 @@ const AncestorSearch = ({onSelect,addAncestorNode}) => {
         >
           <fieldset className="mb-3">
             <legend>Zadanie známych údajov</legend>
-            <p>Vyplnte čo najviac údajov</p>
+            <p>Vyplňte čo najviac údajov</p>
             <p>Môžete zadať aj nepresné informácie</p>
             <table>
 			<tr>
@@ -234,8 +234,8 @@ const AncestorSearch = ({onSelect,addAncestorNode}) => {
                     <h3>{result.name} {result.surname}</h3>
                     <p>{result.role}</p>
                     <p>{result.matrial_status}</p>
-                    {result.death_date && <p>Death date: {result.death_date}</p>}
-                    {result.death_city && <p>Death city: {result.death_city}</p>}
+                    {result.death_date && <p>Dátum úmrtia: {result.death_date}</p>}
+                    {result.death_city && <p>Miesto úmrtia: {result.death_city}</p>}
                   </div>
                   <div className="result-right">
                     <button
@@ -270,8 +270,8 @@ const AncestorSearch = ({onSelect,addAncestorNode}) => {
               <p>{modalData.matrial_status}</p>
               <p>{modalData.birth_date}</p>
               <p>{modalData.birth_city}</p>
-              {modalData.death_date && <p>Death date: {modalData.death_date}</p>}
-              {modalData.death_city && <p>Death city: {modalData.death_city}</p>}
+              {modalData.death_date && <p>Dátum úmrtia: {modalData.death_date}</p>}
+              {modalData.death_city && <p>Miesto úmrtia: {modalData.death_city}</p>}
             </div>
             <div className="modal-footer">
               <button className="add-ancestor-button" onClick={() => onSelect(modalData)}>

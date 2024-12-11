@@ -187,7 +187,6 @@ const FamilyTree = () => {
         n.setData({...data,selected: false });
 
       });
-    
       const data = node.getData();
       node.setData({...data,selected: true });
 
