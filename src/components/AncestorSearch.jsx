@@ -56,7 +56,7 @@ const generateRandomPeople = (count) => {
   return arr;
 };
 
-const AncestorSearch = ({onSelect}) => {
+const AncestorSearch = ({onAddAncestor}) => {
   const [formData, setFormData] = useState({
     name: '',
     surname: '',
@@ -74,6 +74,14 @@ const AncestorSearch = ({onSelect}) => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+  };
+
+  const handleAddAncestor = (data) => {
+    if (onAddAncestor) {
+      onAddAncestor(data);
+    } else {
+      console.error("onAddAncestor is not provided or is not a function");
+    }
   };
 
   const removeDiacritics = (str) => {
@@ -228,7 +236,7 @@ const AncestorSearch = ({onSelect}) => {
                   <div className="result-right">
                     <button
                       className="add-button"
-                      onClick={() => onSelect(result)}
+                      onClick={() => handleAddAncestor(result)}
                     >
                       +
                     </button>
@@ -262,7 +270,7 @@ const AncestorSearch = ({onSelect}) => {
               {modalData.death_city && <p>Death city: {modalData.death_city}</p>}
             </div>
             <div className="modal-footer">
-              <button className="add-ancestor-button" onClick={() => onSelect(modalData)}>
+              <button className="add-ancestor-button"  onClick={handleAddAncestor(modalData)}>
                 Pridať predka
               </button>
             </div>

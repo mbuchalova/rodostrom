@@ -56,7 +56,7 @@ const FamilyTree = () => {
       }
     }
   };
-
+  
   const addNode = (data) => {
     if (!graph) return;
 
@@ -179,12 +179,15 @@ const FamilyTree = () => {
     g.on('node:click', ({ node }) => {
       g.getNodes().forEach((n) => {
         const data = n.getData();
-        n.setData({selected: false });
+        n.setData({...data,selected: false });
 
       });
     
       const data = node.getData();
-      node.setData({selected: true });
+      node.setData({...data,selected: true });
+
+      setSelectedNode(node.getData());
+
     });
 
     g.on('node:button-plus:click', ({ node }) => {
@@ -232,6 +235,22 @@ const FamilyTree = () => {
     g.centerContent();
   }, []);
 
+  const addAncestorNode = (ancestorData) => {
+    if (!graph) return;
+
+    // Define a secluded spot (arbitrary values, adjust as needed)
+    const secludedPosition = { x: 50, y: 50 };
+
+    graph.addNode({
+      shape: 'custom-react-node',
+      x: secludedPosition.x,
+      y: secludedPosition.y,
+      width: 100,
+      height: 40,
+      data: ancestorData,
+    });
+  };
+
   const renameSelectedNode = () => {
     if (!selectedNode) return;
     setIsRenaming(true);
@@ -259,39 +278,56 @@ const FamilyTree = () => {
 
   return (
     <section className="family-tree-section">
-      <div id="container" className="family-tree-container">
-      <div className="zoom-controls">
-        <button onClick={handleZoomIn}>+</button>
-        <button onClick={handleZoomOut}>−</button>
-      </div>
-      {/* <button onClick={exportGraph}>Export graph</button> */}
-        {/* <button
-          onClick={() => {
-            const jsonString = prompt('Insert json for import:');
-            if (jsonString) {
-              importGraph(jsonString);
-            }
-          }}
-        >
-          Import graph
-        </button> */}
-        {/* <button onClick={renameSelectedNode} disabled={!selectedNode}>Rename node</button>
-        {isRenaming && (
-          <div>
-            <input
-              type="text"
-              value={newName}
-              onChange={(e) => setNewName(e.target.value)}
-            />
-            <button onClick={handleRename}>Save</button>
+      <div className="family-tree-container-wrapper">
+
+        <div id="container" className="family-tree-container">
+        <div className="zoom-controls">
+          <button onClick={handleZoomIn}>+</button>
+          <button onClick={handleZoomOut}>−</button>
+        </div>
+        {/* <button onClick={exportGraph}>Export graph</button> */}
+          {/* <button
+            onClick={() => {
+              const jsonString = prompt('Insert json for import:');
+              if (jsonString) {
+                importGraph(jsonString);
+              }
+            }}
+          >
+            Import graph
+          </button> */}
+          {/* <button onClick={renameSelectedNode} disabled={!selectedNode}>Rename node</button>
+          {isRenaming && (
+            <div>
+              <input
+                type="text"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+              />
+              <button onClick={handleRename}>Save</button>
+            </div>
+          )} */}
+          <div ref={containerRef} />
+        </div>
+        <div className="node-info-panel">
+            {selectedNode ? (
+              <div>
+                <h2>Informácie o členovi stromu</h2>
+                <p><strong>Meno:</strong> {selectedNode.name}</p>
+                {selectedNode.surname && <p><strong>Priezvisko:</strong> {selectedNode.surname}</p>}
+                {selectedNode.job && <p><strong>Práca:</strong> {selectedNode.job}</p>}               
+               
+              </div>
+            ) : (
+              <p>No node selected</p>
+            )}
           </div>
-        )} */}
-        <div ref={containerRef} />
       </div>
 
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <AncestorSearch onSelect={addNode}/>
+        <AncestorSearch  onAddAncestor={addAncestorNode}/>
       </Modal>
+      
       
     </section>
   );

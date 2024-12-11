@@ -40,7 +40,7 @@ const App = () => {
           <NavLink to="/shared-trees" className={({ isActive }) => (isActive ? 'active' : '')}>
             Verejné stromy
           </NavLink>
-          <a>Odhlásiť sa</a>
+          {/*<a>Odhlásiť sa</a>*/}
         </nav>
 
         <Routes>

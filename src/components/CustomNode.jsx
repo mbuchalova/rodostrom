@@ -40,12 +40,14 @@ export const CustomNode = ({ node }) => {
         >
           −
         </button>
+        {/*        
         <button className="node-button" onClick={handleRenameClick}>
           ✏️
         </button>
         <button className="node-button" onClick={() => handleGenderChange()}>
           🔄
         </button>
+*/}
       </div>
     </div>
   );

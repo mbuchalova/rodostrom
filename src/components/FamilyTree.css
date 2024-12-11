@@ -1,24 +1,39 @@
 /* FamilyTree.css */
-.family-tree-container {
+.family-tree-container-wrapper {
+  display: flex;
+  height: 100%; /* Full height of the section */
   width: 100%;
-  height: 800px;
+}
+
+.family-tree-container {
+  flex: 1; /* Allow graph to take up remaining space */
+  height: 550px; /* Fixed height to prevent scrolling */
   background-color: #f8f8f8;
   border: 1px solid #d9dad7;
   border-radius: 10px;
-  margin: 2em 0;
+  margin: 1em 0;
+  overflow: hidden; /* Prevent scrolling inside the graph container */
 }
 
+.node-info-panel {
+  width: 200px; /* Fixed width for info panel */
+  flex-shrink: 0; /* Prevent the panel from resizing */
+  background-color: #f8f8f8;
+  padding: 1em;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  overflow-y: auto; /* Allow scrolling for content inside the panel */
+}
 
 .family-tree-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5em auto;
-  padding: 2em;
+  margin: 1em auto;
+  padding: 0em;
   background-color: #edf0f4;
   border-radius: 20px;
   text-align: center;
-  width: 80%;
+  width: 90%;
 }
 
 .form-area,
@@ -33,7 +48,7 @@
 }
 
 .graph-area {
-  height: 800px;
+  height: 550px;
 }
 
 h2 {
