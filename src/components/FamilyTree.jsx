@@ -98,7 +98,8 @@ const FamilyTree = () => {
       container: containerRef.current,
       autoResize: true,
       background: {
-        color: '#edf0f4',
+        // color: '#edf0f4',
+        color: '#e3d0b6',
       },
       grid: {
         size: 10,

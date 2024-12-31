@@ -19,12 +19,16 @@ const App = () => {
 
   return (
     <Router>
-      <header>
-        <a>
+      <header style={{ marginTop: '0px' }}>
           <h1>RODOSTROM</h1>
-        </a>
       </header>
-      <div>
+        <div style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/rodostrom.png'})`,
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          backgroundPosition: 'center',
+          backgroundColor: '#fdf7f1', // Pozadie stránky
+          minHeight: '100vh',
+        }}>
         <nav>
           <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
             Môj rodostrom

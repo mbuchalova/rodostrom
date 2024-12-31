@@ -40,7 +40,6 @@
 /*  width: 90%;*/
 /*}*/
 
-/* Updated styles for FamilyTree to match overall design */
 .family-tree-container-wrapper {
   display: flex;
   height: 100%; /* Full height of the section */
@@ -54,8 +53,9 @@
 .family-tree-container {
   flex: 1;
   height: 550px; /* Fixed height to prevent scrolling */
-  background-color: #faf4eb; /* Lighter background */
+  background-color: #fdf7f1;
   border-radius: 15px;
+  border: 1px solid #a89f91;
   margin: 1em 0;
   overflow: hidden; /* Prevent scrolling inside the graph container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -88,10 +88,11 @@
 .graph-area {
   padding: 1em 2em;
   border-radius: 15px;
-  margin: 2em auto;
-  max-width: 800px; /* Nastavenie šírky */
+  margin: 0 auto;
+  max-width: 90%; /* Nastavenie šírky */
   background-color: #fdf7f1; /* Zjednotenie farby pozadia */
   border: 1px solid #a89f91; /* Usporiadanie hrán formulára *!*/
+  width: 100%;
 }
 
 .graph-area {
@@ -99,7 +100,7 @@
   padding: 1em 2em;
   border-radius: 15px;
   margin: 2em auto;
-  max-width: 800px; /* Width adjustment */
+  max-width: 90%; /* Width adjustment */
   background-color: #faf4eb; /* Matches design */
   border: 1px solid #a89f91;
 }
@@ -112,3 +113,22 @@ h2 {
 .node-dragging {
   cursor: grabbing;
 }
+
+.zoom-controls button {
+  background-color: #b8987e; /* Matches overall theme */
+  border: 1px solid #a89f91;
+  color: #ffffff;
+  border-radius: 10px; /* Slightly rounded corners for better aesthetics */
+  padding: 0.8em 1.2em; /* Increased padding for size */
+  font-size: 1.2em; /* Larger text */
+  margin: 0.5em; /* Add some spacing around the buttons */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+}
+
+.zoom-controls button:hover {
+  background-color: #a17c62; /* Darker background for hover */
+  transform: scale(1.1); /* Slight enlargement on hover */
+}
+
+
