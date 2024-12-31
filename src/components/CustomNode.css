@@ -33,28 +33,51 @@
   margin-top: 10px; /* Больше расстояние от имени */
 }
 
+/*.node-button {*/
+/*  background-color: #4CAF50;*/
+/*  color: white;*/
+/*  border: none;*/
+/*  border-radius: 50%;*/
+/*  width: 30px;*/
+/*  height: 30px;*/
+/*  cursor: pointer;*/
+/*  font-size: 16px; !* Сделано чуть больше *!*/
+/*  line-height: 30px;*/
+/*}*/
+
 .node-button {
-  background-color: #4CAF50;
+  background-color: #b8987e;
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 5px;
   width: 30px;
   height: 30px;
   cursor: pointer;
-  font-size: 16px; /* Сделано чуть больше */
+  font-size: 16px;
   line-height: 30px;
+  transition: background-color 0.3s;
 }
 
+/*.node-button:last-child {*/
+/*  background-color: #F44336;*/
+/*}*/
 
+/*.node-button:hover {*/
+/*  background-color: #3e8e41; !* Тёмно-зелёный для зелёной кнопки *!*/
+/*}*/
 
-.node-button:last-child {
-  background-color: #F44336;
-}
+/*.node-button:last-child:hover {*/
+/*  background-color: #e53935; !* Тёмно-красный для красной кнопки *!*/
+/*}*/
 
 .node-button:hover {
-  background-color: #3e8e41; /* Тёмно-зелёный для зелёной кнопки */
+  background-color: #a17c62;
+}
+
+.node-button:last-child {
+  background-color: #e53935;
 }
 
 .node-button:last-child:hover {
-  background-color: #e53935; /* Тёмно-красный для красной кнопки */
+  background-color: #d32f2f;
 }
