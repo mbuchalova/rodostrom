@@ -1,16 +1,19 @@
 /* components/CustomNode.css */
+
 .custom-node {
-  text-align: center;
-  width: 120px; /* Увеличено для учета рамки */
-  padding: 10px; /* Отступы внутри рамки */
-  border: 2px solid #d9dad7; /* Рамка */
-  border-radius: 8px; /* Скругленные углы */
-  background-color: #ffffff; /* Белый фон */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Лёгкая тень */
+    text-align: center;
+    width: 150px; /* Increase width for better spacing */
+    padding: 12px; /* Add padding for more space */
+    border: 2px solid #b8a18a; /* Match general border theme */
+    background-color: #faf8f4; /* Softer background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 10px;
 }
 
 .custom-node.selected {
-  border: 4px solid #ff0000; /* Highlight outline */
+    border: 3px solid #ff5e5e; /* Softer red color */
+    box-shadow: 0 0 15px rgba(255, 94, 94, 0.5); /* Glow effect */
+    transition: border 0.3s, box-shadow 0.3s; /* Smooth animation */
 }
 
 
@@ -29,55 +32,33 @@
 
 .node-buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   margin-top: 10px; /* Больше расстояние от имени */
 }
-
-/*.node-button {*/
-/*  background-color: #4CAF50;*/
-/*  color: white;*/
-/*  border: none;*/
-/*  border-radius: 50%;*/
-/*  width: 30px;*/
-/*  height: 30px;*/
-/*  cursor: pointer;*/
-/*  font-size: 16px; !* Сделано чуть больше *!*/
-/*  line-height: 30px;*/
-/*}*/
 
 .node-button {
   background-color: #b8987e;
   color: white;
   border: none;
-  border-radius: 5px;
-  width: 30px;
-  height: 30px;
+  border-radius: 50%; /* Circular buttons */
+  width: 40px; /* Adjust size */
+  height: 40px;
+  margin: 0.5em;
   cursor: pointer;
-  font-size: 16px;
-  line-height: 30px;
-  transition: background-color 0.3s;
+  font-size: 16px; /* Adjust text size */
+  line-height: 40px; /* Vertically align text */
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-/*.node-button:last-child {*/
-/*  background-color: #F44336;*/
-/*}*/
-
-/*.node-button:hover {*/
-/*  background-color: #3e8e41; !* Тёмно-зелёный для зелёной кнопки *!*/
-/*}*/
-
-/*.node-button:last-child:hover {*/
-/*  background-color: #e53935; !* Тёмно-красный для красной кнопки *!*/
-/*}*/
-
 .node-button:hover {
-  background-color: #a17c62;
+    background-color: #a17c62; /* Softer hover effect */
+    transform: scale(1.1); /* Slight hover enlargement */
 }
 
 .node-button:last-child {
-  background-color: #e53935;
+    background-color: #e54343; /* Bright red for delete */
 }
 
 .node-button:last-child:hover {
-  background-color: #d32f2f;
+    background-color: #d32f2f; /* Slightly darker hover red */
 }

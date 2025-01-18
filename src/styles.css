@@ -30,12 +30,15 @@ header {
 /*}*/
 
 section {
-  background-color: #fdf7f1;
+  /*background-color: #fdf7f1;*/
+  background-color: #faf4eb;
   margin: 2em auto;
   padding: 2em;
   max-width: 1500px;
   border-radius: 20px;
-  border: 1px solid #a89f91;
+  /*border: 1px solid #a89f91;*/
+  border: 1px solid #b8a18a;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 #main_section {
@@ -69,9 +72,14 @@ nav a {
     transition: background-color 0.3s, color 0.3s;
 }
 
+/*nav a.active {*/
+/*    background-color: rgb(194, 167, 140);*/
+/*    color: black;*/
+/*}*/
+
 nav a.active {
-    background-color: rgb(194, 167, 140);
-    color: black;
+    background-color: #c8a17a; /* Slightly lighter highlight color */
+    color: white; /* Make text stand out more */
 }
 
 nav a:hover {
@@ -109,7 +117,8 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #a17c62;
+    background-color: #a17c62; /* Softer hover transition */
+    transform: scale(1.05); /* Slight enlargement */
 }
 
 fieldset {
@@ -139,12 +148,13 @@ fieldset {
 .tree-node {
     background-color: #e9dac3;
     border-radius: 10px;
-    padding: 1em;
+    padding: 1.2em;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin: 1em;
-    font-size: 1.1em;
-    color: #5a4635;
+    margin: 1.5em;
+    font-size: 1.2em;
+    /*color: #5a4635;*/
+    color: #4a3b30;
 }
 
 .tree-node:hover {

@@ -1,62 +1,27 @@
 /*!*!* FamilyTree.css *!*!*/
-/*.family-tree-container-wrapper {*/
-/*  display: flex;*/
-/*  height: 100%; !* Full height of the section *!*/
-/*  width: 100%;*/
-/*}*/
-
-/*.family-tree-container {*/
-/*  flex: 1; !* Allow graph to take up remaining space *!*!*/
-/*  height: 550px; !* Fixed height to prevent scrolling *!*/
-/*  !*background-color: #f8f8f8;*!*/
-/*  !*border: 1px solid #d9dad7;*!*/
-/*  border-radius: 15px;*/
-/*  margin: 1em 0;*/
-/*  overflow: hidden; !* Prevent scrolling inside the graph container *!*/
-/*  !*background-color: #f8efe4;*!*/
-/*  !*padding: 2em;*!*/
-/*  !*border-radius: 15px;*!*/
-/*  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*}*/
-
-/*.node-info-panel {*/
-/*  width: 200px; !* Fixed width for info panel *!*/
-/*  flex-shrink: 0; !* Prevent the panel from resizing *!*/
-/*  background-color: #f8f8f8;*/
-/*  padding: 1em;*/
-/*  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);*/
-/*  overflow-y: auto; !* Allow scrolling for content inside the panel *!*/
-/*}*/
-
-/*.family-tree-section {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*  align-items: center;*/
-/*  margin: 1em auto;*/
-/*  padding: 0em;*/
-/*  background-color: #edf0f4;*/
-/*  border-radius: 20px;*/
-/*  text-align: center;*/
-/*  width: 90%;*/
-/*}*/
 
 .family-tree-container-wrapper {
   display: flex;
-  height: 100%; /* Full height of the section */
+  /*height: 100%; !* Full height of the section *!*!*/
   width: 100%;
   background-color: #f6efe3; /* Matches the main section background */
   border: 1px solid #a89f91;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex-wrap: wrap; /* Allow wrapping for smaller screens */
+  height: auto; /* Adjust height dynamically */
+  padding: 1em; /* Add padding for better visual spacing */
 }
 
 .family-tree-container {
   flex: 1;
   height: 550px; /* Fixed height to prevent scrolling */
+  /*background-color: #fdf7f1;*/
   background-color: #fdf7f1;
   border-radius: 15px;
-  border: 1px solid #a89f91;
-  margin: 1em 0;
+  /*border: 1px solid #a89f91;*/
+  border: 1px solid #b8a18a; /* Match section styling */
+  margin: 1em;
   overflow: hidden; /* Prevent scrolling inside the graph container */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -118,9 +83,9 @@ h2 {
   background-color: #b8987e; /* Matches overall theme */
   border: 1px solid #a89f91;
   color: #ffffff;
-  border-radius: 10px; /* Slightly rounded corners for better aesthetics */
-  padding: 0.8em 1.2em; /* Increased padding for size */
-  font-size: 1.2em; /* Larger text */
+  border-radius: 8px; /* Slightly rounded corners for better aesthetics */
+  padding: 0.6em 1.0em; /* Increased padding for size */
+  font-size: 1.0em; /* Larger text */
   margin: 0.5em; /* Add some spacing around the buttons */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
