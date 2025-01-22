@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Lora', serif;
     background-color: #fdf7f1;
@@ -18,16 +22,6 @@ header {
   line-height: 20px;
   padding-top: 10px; /* Odstrániť extra priestor */
 }
-
-/*section {*/
-/*    color: #5a4635;*/
-/*    border-radius: 20px;*/
-/*    background-color: #faf4eb;*/
-/*    margin: 3em auto;*/
-/*    padding: 2em;*/
-/*    max-width: 1500px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*}*/
 
 section {
   /*background-color: #fdf7f1;*/
@@ -72,11 +66,6 @@ nav a {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/*nav a.active {*/
-/*    background-color: rgb(194, 167, 140);*/
-/*    color: black;*/
-/*}*/
-
 nav a.active {
     background-color: #c8a17a; /* Slightly lighter highlight color */
     color: white; /* Make text stand out more */
@@ -100,7 +89,8 @@ input, select {
 }
 
 input[type="submit"] {
-    background-color: #b8987e;
+    /*background-color: #b8987e;*/
+    background-color: #ff6d4c;
     color: white;
     border: none;
     height: 40px;
@@ -114,10 +104,11 @@ input[type="submit"] {
     display: block;
     position: relative;
     right: 0;
+    font-size: 1em;
 }
 
 input[type="submit"]:hover {
-    background-color: #a17c62; /* Softer hover transition */
+    background-color: #ff6d5c; /* Softer hover transition */
     transform: scale(1.05); /* Slight enlargement */
 }
 
@@ -126,24 +117,6 @@ fieldset {
   padding: 1em;
   border-radius: 10px;
 }
-
-/*footer {*/
-/*    text-align: center;*/
-/*    padding: 1em;*/
-/*    background-color: #e9dac3;*/
-/*    color: #5a4635;*/
-/*    border-top: 2px solid #a89f91;*/
-/*    margin-top: 2em;*/
-/*    position: relative;*/
-/*}*/
-
-/* Štýly pre rodostrom */
-/*.tree-container {*/
-/*    background-color: #f8efe4;*/
-/*    padding: 2em;*/
-/*    border-radius: 15px;*/
-/*    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
-/*}*/
 
 .tree-node {
     background-color: #e9dac3;
@@ -185,13 +158,6 @@ fieldset {
     border: 1px solid #a89f91; /* Usporiadanie hrán formulára *!*/
     width: 100%;
 }
-
-/*.results-area {*/
-/*    margin: 1em;*/
-/*    padding: 1em;*/
-/*    border-radius: 10px;*/
-/*    background-color: #f9f4ee;*/
-/*}*/
 
 .results-area {
     margin: 1em auto;

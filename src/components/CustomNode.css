@@ -1,5 +1,9 @@
 /* components/CustomNode.css */
 
+* {
+    box-sizing: border-box;
+}
+
 .custom-node {
     text-align: center;
     width: 150px; /* Increase width for better spacing */

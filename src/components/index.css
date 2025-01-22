@@ -1,34 +1,60 @@
+* {
+    box-sizing: border-box;
+}
+
 .container.d-flex {
     display: flex;
     justify-content: space-between; /* Align form and results horizontally */
     align-items: center; /* Center form and results vertically */
     gap: 2em; /* Space between the form and results */
     min-height: 100%; /* Ensure the container takes up full height of the gray block */
-    margin: 0;
-    padding: 0;
+    flex-wrap: wrap;
+    margin: 1em auto;
+    padding: 2em;
+    width: 100%;
+    background-color: #eae5d8; /* Darker beige for the outer container */
+    /*background-color: #fdf7f1;*/
+    /*background-color: #fdfdfb;*/
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 #search-form-area {
-    background-color: #f8f8f8; /* Match the search results area */
-    border: 1px solid #d9dad7; /* Match border style */
+    /*background-color: #f6efe3; !* Match the search results area *!*/
+    /*border: 1px solid #a89f91; !* Match border style *!*/
+    /*background-color: #ffffff; !* White for a clean look *!*/
+    /*border: 1px solid #e2e2e2; !* Light gray border *!*/
+    background-color: #fefcf8; /* Light beige inside */
+    border: 1px solid #a89f91; /* Match main page border style */
     border-radius: 10px; /* Rounded corners */
     padding: 1.5em; /* Padding inside the box */
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow for depth */
-    margin: 1em; /* Space around the form area */
+    margin: 0em; /* Space around the form area */
     width: 45%; /* Adjust width if needed */
 }
-
 
 #search-results-area {
     flex: 2; /* Results take 2 parts of available space */
     max-width: 50%; /* Prevent it from becoming too wide */
-    background-color: #f8f8f8;
+    /*background-color: #f8f8f8;*/
+    /*border: 1px solid #d9dad7;*/
+    /*background-color: #ffffff; !* Match form area background *!*/
+    /*border: 1px solid #e2e2e2;*/
+    background-color: #fefcf8; /* Same light beige as form area */
+    border: 1px solid #a89f91;
     padding: 1.5em;
     border-radius: 10px;
-    border: 1px solid #d9dad7;
     overflow: hidden; /* Prevents overflow outside the container */
     display: flex;
     flex-direction: column; /* Ensures children are stacked vertically */
+    width: 100%; /* Ensure it resizes with the parent */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#search-form-area, #search-results-area {
+    flex: 1; /* Make both sections grow equally */
+    min-width: 300px; /* Ensure a minimum width */
+    max-width: 48%; /* Prevent sections from becoming too wide */
 }
 
 .results-container {
@@ -40,6 +66,7 @@
     padding-right: 0.5em; /* Add some padding for better scroll visibility */
     scrollbar-width: thin; /* For modern browsers, make the scrollbar thin */
     scrollbar-color: #d9dad7 #f8f8f8; /* Custom colors for the scrollbar */
+    justify-content: center; /* Center results horizontally */
 }
 
 .results-container::-webkit-scrollbar {

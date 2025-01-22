@@ -1,5 +1,9 @@
 /*!*!* FamilyTree.css *!*!*/
 
+* {
+    box-sizing: border-box;
+}
+
 .family-tree-container-wrapper {
   display: flex;
   /*height: 100%; !* Full height of the section *!*!*/

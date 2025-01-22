@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 .modal {
     display: none; /* Hidden by default */
     position: fixed;
@@ -19,6 +23,8 @@
 /* Modal Content Box */
 .modal-content {
     background-color: white !important; /* White background */
+    /*background-color: #fefcf8; !* Match form's inner lighter tone *!*/
+    border: 1px solid #a89f91; /* Match main page border style */
     width: 400px; /* Fixed width for the modal */
     max-width: 60%; /* Ensures responsiveness */
     border-radius: 10px; /* Rounded corners */
@@ -35,7 +41,8 @@
     right: 10px;
     font-size: 24px;
     font-weight: bold;
-    color: #666;
+    /*color: #666;*/
+    color: #5a4635; /* Consistent text color */
     cursor: pointer;
 }
 
