@@ -24,9 +24,7 @@ export const CustomNode = ({ node }) => {
   };
 
   return (
-    <div className={`custom-node ${selected ? 'selected' : ''}`}> 
-      <img src={imageUrl} alt={gender} className="node-image" />
-      <div className="node-name">{name} {surname}</div>
+    <div className={`custom-node ${selected ? 'selected' : ''}`}>
       <div className="node-buttons">
         <button
           className="node-button"
@@ -36,19 +34,13 @@ export const CustomNode = ({ node }) => {
         </button>
         <button
           className="node-button"
-          onClick={() => node.model.graph.trigger('node:button-minus:click', { node })}
+          onClick={() => node.model.graph.trigger('node:button-plus:click', { node })}
         >
-          −
+          +
         </button>
-        {/*        
-        <button className="node-button" onClick={handleRenameClick}>
-          ✏️
-        </button>
-        <button className="node-button" onClick={() => handleGenderChange()}>
-          🔄
-        </button>
-*/}
       </div>
+      <img src={imageUrl} alt={gender} className="node-image" />
+      <div className="node-name">{name} {surname}</div>
     </div>
   );
 };

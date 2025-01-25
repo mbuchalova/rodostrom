@@ -200,9 +200,9 @@ const FamilyTree = () => {
       setIsModalOpen(true);
     });
 
-    g.on('node:button-minus:click', ({ node }) => {
-      g.removeNode(node);
-    });
+    // g.on('node:button-minus:click', ({ node }) => {
+    //   g.removeNode(node);
+    // });
 
     setGraph(g);
     g.fromJSON(sampleData);
@@ -330,7 +330,15 @@ const FamilyTree = () => {
                 <p><strong>Meno:</strong> {selectedNode.name}</p>
                 {selectedNode.surname && <p><strong>Priezvisko:</strong> {selectedNode.surname}</p>}
                 {selectedNode.job && <p><strong>Práca:</strong> {selectedNode.job}</p>}               
-               
+                <button onClick={() => {
+                if (selectedNode && graph) {
+                  const nodeToRemove = graph.getCellById(selectedNode.id); // Získajte uzol podľa ID
+                  if (nodeToRemove) {
+                    graph.removeNode(nodeToRemove); // Odstráňte uzol
+                    setSelectedNode(null); // Reset výberu uzla
+                  }
+                }
+              }}>Zmazať</button>
               </div>
             ) : (
               <p>Dvojklikom na člena stromu zobrazíte jeho informácie</p>
