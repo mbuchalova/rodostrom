@@ -194,7 +194,13 @@ const FamilyTree = () => {
 
     });
 
-    g.on('node:button-plus:click', ({ node }) => {
+    g.on('node:button-plus-left:click', ({ node }) => {
+      console.log('button-plus:click')
+      setParentNode(node);
+      setIsModalOpen(true);
+    });
+
+    g.on('node:button-plus-right:click', ({ node }) => {
       console.log('button-plus:click')
       setParentNode(node);
       setIsModalOpen(true);
@@ -346,9 +352,19 @@ const FamilyTree = () => {
           </div>
       </div>
 
+      {/*<Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>*/}
+      {/*  <AncestorSearch   onSelect={addNode}/>*/}
+      {/*</Modal>*/}
+
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <AncestorSearch   onSelect={addNode}/>
+        <AncestorSearch
+          onSelect={(ancestorData) => {
+            addNode(ancestorData); // Zavolá funkciu addNode so zadanými údajmi
+            setIsModalOpen(false); // Zatvorí modálne okno
+          }}
+        />
       </Modal>
+
       
       
     </section>

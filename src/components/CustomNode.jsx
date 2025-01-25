@@ -28,13 +28,13 @@ export const CustomNode = ({ node }) => {
       <div className="node-buttons">
         <button
           className="node-button"
-          onClick={() => node.model.graph.trigger('node:button-plus:click', { node })}
+          onClick={() => node.model.graph.trigger('node:button-plus-left:click', { node })}
         >
           +
         </button>
         <button
           className="node-button"
-          onClick={() => node.model.graph.trigger('node:button-plus:click', { node })}
+          onClick={() => node.model.graph.trigger('node:button-plus-right:click', { node })}
         >
           +
         </button>
